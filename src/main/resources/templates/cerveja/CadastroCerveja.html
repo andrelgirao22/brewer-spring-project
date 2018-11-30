@@ -6,18 +6,22 @@
 </head>
 <body>
 	<h1>Olá spring mvc</h1>
-	<form method="POST">
-		<span th:text="${mensagem}"></span>
+	<form method="POST" th:object="${cerveja}">
+	
+		<span th:text="${#fields.hasAnyErrors()}"></span>
+		<div th:each="error: ${#fields.detailedErrors()}">
+			<span th:text="${error.message}"></span>
+		</div>
 		<br>
 		<label>SKU</label>
-		<input type="text" name="sku"/>
+		<input type="text" th:field="*{sku}"/>
 		<br>
 		<label>Nome</label>
-		<input type="text" name="nome"/>
+		<input type="text" th:field="*{nome}"/>
 		<br>
 		
 		<label>Descrição</label>
-		<input type="text" name="descricao"/>
+		<textarea rows="3" cols="30" id="descricao" th:field="*{descricao}"></textarea>
 		<br>
 		<input type="submit" value="Salvar"/>
 	</form>
