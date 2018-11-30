@@ -1,9 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org">
 <head>
 <title></title>
 </head>
 <body>
-	<h1>Ol� spring mvc</h1>
+	<h1>Olá spring mvc</h1>
+	<form method="POST">
+		<span th:text="${mensagem}"></span>
+		<br>
+		<label>SKU</label>
+		<input type="text" name="sku"/>
+		<br>
+		<label>Nome</label>
+		<input type="text" name="nome"/>
+		<br>
+		
+		<label>Descrição</label>
+		<input type="text" name="descricao"/>
+		<br>
+		<input type="submit" value="Salvar"/>
+	</form>
+	
 </body>
 </html>
