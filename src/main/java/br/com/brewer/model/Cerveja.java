@@ -33,4 +33,9 @@ public class Cerveja {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}	
+	
+	@Override
+	public String toString() {
+		return "sku " + sku + " nome " + nome; 
+	}
 }
