@@ -12,9 +12,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
+
+import br.com.brewer.validation.SKU;
 
 @Entity
 @Table(name="cerveja")
@@ -24,6 +27,7 @@ public class Cerveja {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 	
+	@SKU
 	@NotBlank(message="SKU é obrigatório")
 	private String sku;
 	
