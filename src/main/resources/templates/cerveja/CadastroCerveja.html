@@ -24,8 +24,7 @@
 	
 		<form method="POST" th:object="${cerveja}" class="form-vertical  js-form-loading">
 		
-			<th:block th:include="fragments/MensagensErroValidacao"></th:block>
-			<th:block th:include="fragments/MensagemSucesso"></th:block>
+			<brewer:message/>
 		
 			<div class="row">
 				<div class="col-sm-2 form-group"  brewer:classforerror="sku">			
