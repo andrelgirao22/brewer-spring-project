@@ -63,6 +63,15 @@ public class FotoStorageLocal implements FotoStorage {
 		}
 	}
 	
+	@Override
+	public byte[] recuperarFotoTemporaria(String nome) {
+		try {
+			return Files.readAllBytes(this.localTemporario.resolve(nome));
+		} catch (IOException e) {
+			throw new RuntimeException("Erro lendo a foto temporária");
+		}
+	}
+	
 	private String renomearArquivo(String nomeOriginal) {
 		String novoNome = UUID.randomUUID().toString() + "_" + nomeOriginal;
 		if(logger.isDebugEnabled()) {
@@ -71,5 +80,6 @@ public class FotoStorageLocal implements FotoStorage {
 		
 		return novoNome;
 	}
+
 	
 }
